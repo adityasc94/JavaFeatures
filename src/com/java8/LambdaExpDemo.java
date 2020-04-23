@@ -58,8 +58,3 @@ public class LambdaExpDemo {
 	}
 }
 
-class Employee{
-	String name;
-	String empId;
-	double salary;
-}
