@@ -65,11 +65,6 @@ public class MethodReferenceDemo {
 		// called both Bicycle and Array constructors using a method reference
 
 	}
-	
-	public static void testMethod(HashSet<String> input) {
-		
-	}
-
 }
 
 class ComparisonProvider {
