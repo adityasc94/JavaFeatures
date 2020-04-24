@@ -1,4 +1,4 @@
-package com.java8;
+package com.common;
 
 public class Employee{
 	Integer empId;

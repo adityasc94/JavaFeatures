@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import com.common.Employee;
+
 /**
  * You use lambda expressions to create anonymous methods. 
  * Sometimes, however, a lambda expression does nothing but call an existing method. 

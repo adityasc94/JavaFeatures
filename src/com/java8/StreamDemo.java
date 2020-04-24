@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import com.common.Employee;
+
 public class StreamDemo {
 
 	public static Employee[] arrayOfEmps = {
@@ -69,7 +71,7 @@ public class StreamDemo {
 		List<Employee> employees2 = Stream.of(empIds)
 				.map(StreamDemo::getEmployee)
 				.filter(emp -> emp!=null)
-				.filter(emp -> emp.salary > 230000)
+				.filter(emp -> emp.getSalary() > 230000)
 				.collect(Collectors.toList());
 		System.out.println(employees2);
 
@@ -80,7 +82,7 @@ public class StreamDemo {
 		Employee employee1 = Stream.of(empIds)
 				.map(StreamDemo::getEmployee)
 				.filter(emp -> emp!=null)
-				.filter(emp -> emp.salary > 210000)
+				.filter(emp -> emp.getSalary() > 210000)
 				.findFirst()
 				.orElse(null);
 		System.out.println(employee1);
@@ -91,7 +93,7 @@ public class StreamDemo {
 		Employee[] empArray = Stream.of(empIds)
 				.map(StreamDemo::getEmployee)
 				.filter(emp -> emp!=null)
-				.filter(emp -> emp.salary > 210000)
+				.filter(emp -> emp.getSalary() > 210000)
 				.toArray(Employee[]::new);
 		for(Employee emp : empArray) {
 			System.out.print(emp + " ");
@@ -119,7 +121,7 @@ public class StreamDemo {
 		// sorted()
 		// sorts the stream elements based on the comparator passed
 		List<Employee> employees3 = empList.stream()
-				.sorted((e1, e2) -> e2.name.compareTo(e1.name))
+				.sorted((e1, e2) -> e2.getName().compareTo(e1.getName()))
 				.collect(Collectors.toList());
 		System.out.println(employees3);
 
@@ -128,11 +130,11 @@ public class StreamDemo {
 		// return the minimum and maximum element in the stream respectively, 
 		// based on a comparator passed
 		Employee empMin = empList.stream()
-				.min((e1, e2) -> (int)e1.salary - (int)e2.salary)
+				.min((e1, e2) -> (int)e1.getSalary() - (int)e2.getSalary())
 				.orElseThrow(NoSuchElementException::new);
 		System.out.println("Min : " + empMin);
 		Employee empMax = empList.stream()
-				.max((e1, e2) -> (int)e1.salary - (int)e2.salary)
+				.max((e1, e2) -> (int)e1.getSalary() - (int)e2.getSalary())
 				.orElseThrow(NoSuchElementException::new);
 		System.out.println("Min : " + empMax);
 
@@ -289,7 +291,7 @@ public class StreamDemo {
 	public static Employee getEmployee(int empId) {
 		Employee returnVal = null;
 		for(Employee emp : empList) {
-			if(emp.empId == empId) {
+			if(emp.getEmpId() == empId) {
 				returnVal =  emp;
 				break;
 			}
